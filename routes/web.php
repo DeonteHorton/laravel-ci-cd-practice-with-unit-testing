@@ -23,6 +23,6 @@ Route::get('/logout', function () {
     return redirect('/login');
 });
 
-Route::get('/{any}', [\App\Http\Controllers\SpaController::class, 'index'])->where('any','^(?!login|register).*$')->middleware('auth');
+Route::get('/{any}', [\App\Http\Controllers\SpaController::class, 'index'])->where('any','^(?!login|register|forgot-password|reset-password*|verify-email|email/verification-notification*).*$')->middleware('auth');
 
 require __DIR__.'/auth.php';
